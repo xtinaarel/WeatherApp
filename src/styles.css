@@ -1,0 +1,91 @@
+body {
+  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+.weather {
+  border-radius: 20px;
+  border: 2px solid#3bb4c1;
+  box-shadow: 5px 5px 10px #e3e3e3;
+  background: #f6f5f5;
+  width: 75%;
+  color: #048998;
+}
+
+.form-control {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  border: 1px solid#3bb4c1;
+  color: #048998;
+  font-family: "Montserrat", sans-serif;
+  background: white;
+}
+
+.form-control.btn:hover {
+  color: #fff;
+  background: #048998;
+  transition: all 200ms ease;
+}
+
+#location {
+  font-size: 30px;
+  position: relative;
+  top: 27px;
+  opacity: 1;
+}
+#location:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.stats {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+h1 {
+  font-family: "Bungee Shade", cursive;
+  font-size: 60px;
+}
+.currentStats {
+  font-size: 40px;
+  line-height: 2;
+  margin: 2px;
+}
+.pri-icon {
+  font-size: 40px;
+}
+
+.units {
+  position: relative;
+  top: -20px;
+}
+a {
+  text-decoration: none;
+  color: #048998;
+}
+a:hover {
+  text-decoration: underline;
+  color: #048998;
+}
+.secondaryStats {
+  font-size: 20px;
+  line-height: 40px;
+  padding-top: 60px;
+}
+
+.week {
+  margin-bottom: 20px;
+}
+.weekday {
+  font-size: 23px;
+  font-family: "Bungee Shade", cursive;
+}
+.icon {
+  font-size: 30px;
+}
+.day {
+  line-height: 2.5;
+}
