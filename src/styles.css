@@ -89,3 +89,7 @@ a:hover {
 .day {
   line-height: 2.5;
 }
+
+#source {
+  text-align: center;
+}
