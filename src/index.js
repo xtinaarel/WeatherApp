@@ -92,6 +92,37 @@ let month = months[now.getMonth()];
 
 currentDT.innerHTML = `${day}, ${month} ${date}, ${year} </br> ${hours}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row week">`;
+  let days = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2">
+              <div class="weatehr-forecast-day">
+                <span class="weekday">${day}</span><br />
+                <img
+                  src="http://openweathermap.org/img/wn/04n@2x.png"
+                  id="dayOne"
+                  width="60"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max"
+                    ><b>64°</b></span
+                  >
+                  <span class="weather-forecast-temperature-min"> 41°</span>
+                </div>
+              </div>
+            </div>
+        `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -114,3 +145,4 @@ let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 citySearch("Austin");
+displayForecast();
