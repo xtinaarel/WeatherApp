@@ -1,3 +1,11 @@
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "2b6fdad0cbd018949c50c70f72250726";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeather(response) {
   document.querySelector(".city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML =
@@ -21,6 +29,8 @@ function displayWeather(response) {
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
   celsiusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function citySearch(city) {
@@ -92,11 +102,14 @@ let month = months[now.getMonth()];
 
 currentDT.innerHTML = `${day}, ${month} ${date}, ${year} </br> ${hours}:${minutes}`;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row week">`;
   let days = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  let forecastHTML = `<div class="row week">`;
+
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -145,4 +158,3 @@ let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 citySearch("Austin");
-displayForecast();
